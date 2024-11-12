@@ -6,11 +6,13 @@ java_binary(
     name = "ProjectRunner",
     srcs = ["src/main/java/com/example/ProjectRunner.java"],
     main_class = "com.example.ProjectRunner",
-    deps = [":greeter"],
+    deps = [":greeter2"],
 )
+load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
 
-java_library(
-    name = "greeter",
-    srcs = ["src/main/java/com/example/Greeting.java"],
-    visibility = ["//src/main/java/com/example/cmdline:__pkg__"],
+
+kt_jvm_library(
+    name = "greeter2",
+    srcs = ["src/main/java/com/example/Greeting.kt"],
 )
+ 
