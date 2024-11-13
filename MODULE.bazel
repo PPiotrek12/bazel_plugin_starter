@@ -1,1 +1,23 @@
 bazel_dep(name = "rules_java", version = "7.11.1")
+
+bazel_dep(name = "rules_jvm_external", version = "6.5")
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    artifacts = [
+        # This line is an example coordinate, you'd copy-paste your actual dependencies here
+        # from your build.gradle or pom.xml file.
+        "org.seleniumhq.selenium:selenium-java:4.4.0",
+        "commons-cli:commons-cli:1.9.0",
+    ],
+)
+
+# You can split off individual artifacts to define artifact-specific options (this example sets `neverlink`).
+# The `maven.install` and `maven.artifact` tags will be merged automatically.
+maven.artifact(
+    artifact = "javapoet",
+    group = "com.squareup",
+    neverlink = True,
+    version = "1.11.1",
+)
+
+use_repo(maven, "maven")
