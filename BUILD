@@ -15,4 +15,10 @@ kt_jvm_library(
     srcs = ["src/main/java/com/example/Greeting.kt"],
     visibility = ["//src/main/java/com/example/cmdline:__pkg__"]
 )
- 
+
+java_test(
+    name = "greeterTest",
+    srcs = ["src/main/java/com/example/GreeterTest.java"],
+    deps = [":greeterKotlin"],
+    test_class = "com.example.GreeterTest",
+)
