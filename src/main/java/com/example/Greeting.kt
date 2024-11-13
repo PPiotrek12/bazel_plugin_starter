@@ -4,7 +4,7 @@ class Greeting {
     companion object {
         @JvmStatic
         fun sayHi() {
-            println("Hixxx!")
+            println("Hi!")
         }
     }
 }
